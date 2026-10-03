@@ -1,5 +1,6 @@
 package ink.myumoon.eirinyagokoropharmacy.effect;
 
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.effect.MobEffect;
@@ -15,10 +16,11 @@ public class UndeadEffect extends MobEffect {
         super(category, color);
     }
     @Override
-    public boolean applyEffectTick(LivingEntity entity, int amplifier){
+    public boolean applyEffectTick(ServerLevel serverLevel, LivingEntity entity, int amplifier){
         if (entity.getHealth() < 3.0F && entity.getHealth() >0.0F) {
             entity.addEffect(new MobEffectInstance(MobEffects.REGENERATION,200,1));
-            entity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE,200,1));
+            // 1.21.2+ 把 DAMAGE_RESISTANCE 改名成了 RESISTANCE
+            entity.addEffect(new MobEffectInstance(MobEffects.RESISTANCE,200,1));
         }
         entity.getPersistentData().putBoolean("IsUndead",true);
         return true;

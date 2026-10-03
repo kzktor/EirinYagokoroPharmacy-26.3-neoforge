@@ -21,7 +21,8 @@ public class EventDying {
                  event.setCanceled(true);
                  player.setHealth(2.0F);
                  player.addEffect(new MobEffectInstance(MobEffects.REGENERATION,1200,1));
-                 player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE,1200,1));
+                 // 1.21.2+ 把 DAMAGE_RESISTANCE 改名成了 RESISTANCE
+                 player.addEffect(new MobEffectInstance(MobEffects.RESISTANCE,1200,1));
                  player.addEffect(new MobEffectInstance(MobEffects.HUNGER,400));
                  player.level().playSound(null,player.blockPosition(),SoundEvents.TOTEM_USE, SoundSource.PLAYERS,1.0F,1.0F);
             }

@@ -35,8 +35,9 @@ displayName="${mod_name}" #mandatory
 # A URL for the "homepage" for this mod, displayed in the mod UI
 #displayURL="https://change.me.to.your.mods.homepage.example.invalid/" #optional
 
-# A file name (in the root of the mod JAR) containing a logo for display
-logoFile="icon.png" #optional
+# A file name (in the root of the mod JAR) containing a logo for display.
+# 26.3 起 logoFile 已废弃（启动时会警告），方形图标改用 iconFile
+iconFile="icon.png" #optional
 
 # A text field displayed in the mod UI
 #credits="" #optional

@@ -1,9 +1,14 @@
 pluginManagement {
     repositories {
         gradlePluginPortal()
+        maven { url = 'https://maven.neoforged.net/releases' }
+        mavenCentral()
     }
 }
 
+// 本机装的是 JDK 26，靠 foojay-resolver 自动拉 JDK 25 供 toolchain 使用
 plugins {
-    id 'org.gradle.toolchains.foojay-resolver-convention' version '0.9.0'
+    id 'org.gradle.toolchains.foojay-resolver-convention' version '1.0.0'
 }
+
+rootProject.name = 'EirinYagokoroPharmacy'

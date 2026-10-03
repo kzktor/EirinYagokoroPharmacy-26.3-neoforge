@@ -13,7 +13,8 @@ public class EventUndeadDetection {
     public static void UndeadDetection(PlayerTickEvent.Post event){
         Player player = event.getEntity();
         if (player.getPersistentData().contains("IsUndead")) {
-            boolean isUndead = player.getPersistentData().getBoolean("IsUndead");
+            // 26.3 起 CompoundTag#getBoolean 返回 Optional
+            boolean isUndead = player.getPersistentData().getBooleanOr("IsUndead", false);
             if (isUndead && !player.hasEffect(EirinYagokoroPharmacy.UNDEAD_EFFECT)) {
                 player.addEffect(new MobEffectInstance(EirinYagokoroPharmacy.UNDEAD_EFFECT, -1));
             }
